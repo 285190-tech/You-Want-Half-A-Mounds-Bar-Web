@@ -1,0 +1,10 @@
+[build]
+  publish = "WAPOAMB"
+  # The Unity build files are split into parts (to stay under GitHub's file size limit).
+  # Reassemble them into the files index.html expects.
+  command = "cat WAPOAMB/Build/WAPOAMB.data.part* > WAPOAMB/Build/WAPOAMB.data && cat WAPOAMB/Build/WAPOAMB.wasm.part* > WAPOAMB/Build/WAPOAMB.wasm"
+
+[[headers]]
+  for = "/Build/*.wasm"
+  [headers.values]
+    Content-Type = "application/wasm"
